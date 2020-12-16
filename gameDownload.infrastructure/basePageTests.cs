@@ -7,7 +7,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 namespace gameDownload.infrastructure
 {
-    class basePageTests : basePage
+    public class basePageTests : basePage
     {
         [TestMethod]
         public void Search(String Search)
@@ -16,7 +16,6 @@ namespace gameDownload.infrastructure
             searchBox.SendKeys(Search);
             searchButton.Click();
 
-            //   webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             webDriver.FindElement(By.Id("dofullsearch"), 300);
         }
 

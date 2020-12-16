@@ -9,21 +9,27 @@ namespace gameDownload.infrastructure
 {
     public class basePage
     {
+        public static IWebDriver webDriver;
+        //public basePage(IWebDriver webDriver)
+        //{
+        //    this.webDriver = webDriver;
+        //    super(webDriver);
+        //}
+
         //  protected Random random = new Random();
-        public static IWebDriver webDriver = new ChromeDriver();
-        //  public static IWait wait;
+
 
         // Top column - black area
         public IWebElement newGames = webDriver.FindElement
-            (By.LinkText("Новые игры"), 300);
+            (By.XPath("/html/body/div[2]/div/ul[1]/li/a"), 300);
         public IWebElement newGames2020 = webDriver.FindElement
-            (By.LinkText("Игры 2020 года"), 300);
+            (By.XPath("/html/body/div[2]/div/ul[2]/li/a"), 300);
         public IWebElement contacts = webDriver.FindElement
-            (By.LinkText("Контакты"), 300);
+            (By.XPath("/html/body/div[2]/div/ul[3]/li/a"), 300);
         public IWebElement forCopyrightHolders = webDriver.FindElement
-            (By.LinkText("Правообладателям"), 300);
+            (By.XPath("/html/body/div[2]/div/ul[4]/li/a"), 300);
         public IWebElement problemSolution = webDriver.FindElement
-            (By.LinkText("Решения проблем (FAQ)"), 300);
+            (By.XPath("/html/body/div[2]/div/ul[5]/li/a"), 300);
 
 
         // Top column - white area

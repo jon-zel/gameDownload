@@ -15,7 +15,7 @@ namespace gameDownload.infrastructure
 
         // Login buttons
         public IWebElement openLoginProfileButton = webDriver.FindElement
-           (By.Id("open-mini-profile"), 300);
+           (By.Id("nav-miniprofile-link"), 300);
         public IWebElement userNameBox = webDriver.FindElement
            (By.Id("login_name"), 300);
         public IWebElement passwordBox = webDriver.FindElement
