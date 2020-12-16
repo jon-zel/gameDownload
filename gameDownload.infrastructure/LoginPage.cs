@@ -14,48 +14,23 @@ namespace gameDownload.infrastructure
         private const String password = "oop1234";
 
         // Login buttons
-        private IWebElement openLoginProfileButton = webDriver.FindElement
+        public IWebElement openLoginProfileButton = webDriver.FindElement
            (By.Id("open-mini-profile"));
-        private IWebElement userNameBox = webDriver.FindElement
+        public IWebElement userNameBox = webDriver.FindElement
            (By.Id("login_name"));
-        private IWebElement passwordBox = webDriver.FindElement
+        public IWebElement passwordBox = webDriver.FindElement
           (By.Id("login_password"));
-        private IWebElement loginButton = webDriver.FindElement
+        public IWebElement loginButton = webDriver.FindElement
            (By.ClassName("fbutton"));
+        public IWebElement logoutButton = webDriver.FindElement
+           (By.XPath("/html/body/div[2]/div/div[2]/ul/li[3]/a"));
 
-        public void loginAsAutomation()
-        {
-            openLoginProfileButton.Click();
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
-            userNameBox.SendKeys(getUsername());
-            passwordBox.SendKeys(getPassword());
-            loginButton.Click();
-            //wait.until(ExpectedConditions.elementToBeClickable(openLoginProfileButton));
-            //if (!openLoginProfileButton.getText().contains(username))
-            //{
-            //    ExtentTestManager.getTest().fail("login failed");
-            //}
-        }
-
-        public void isTheProfileConnected(out bool profileConnected)
-        {
-            profileConnected = true;
-
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
-            openLoginProfileButton.Click();
-
-            if (!openLoginProfileButton.Text.Contains(getUsername()))
-            {
-                profileConnected = false;
-            }
-        }
-
-        private String getUsername()
+        public String getUserName()
         {
             return username;
         }
 
-        private String getPassword()
+        public String getPassword()
         {
             return password;
         }
