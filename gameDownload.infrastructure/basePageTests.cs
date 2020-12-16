@@ -16,8 +16,8 @@ namespace gameDownload.infrastructure
             searchBox.SendKeys(Search);
             searchButton.Click();
 
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
-            webDriver.FindElement(By.Id("dofullsearch"));
+            //   webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+            webDriver.FindElement(By.Id("dofullsearch"), 300);
         }
 
         //[TestMethod]

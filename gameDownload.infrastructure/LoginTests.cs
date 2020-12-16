@@ -16,7 +16,7 @@ namespace gameDownload.infrastructure
         public void loginAsAutomation()
         {
             openLoginProfileButton.Click();
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+            // webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             userNameBox.SendKeys(getUserName());
             passwordBox.SendKeys(getPassword());
             loginButton.Click();
@@ -26,7 +26,7 @@ namespace gameDownload.infrastructure
         public void loginWithoutPassword()
         {
             openLoginProfileButton.Click();
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+            //  webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             userNameBox.SendKeys(getUserName());
             loginButton.Click();
         }
@@ -35,7 +35,7 @@ namespace gameDownload.infrastructure
         public void loginWithoutUserName()
         {
             openLoginProfileButton.Click();
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+            //    webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             passwordBox.SendKeys(getPassword());
             loginButton.Click();
         }
@@ -45,7 +45,7 @@ namespace gameDownload.infrastructure
         {
             profileConnected = true;
 
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+            //     webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             openLoginProfileButton.Click();
 
             if (!openLoginProfileButton.Text.Contains(getUserName()))
