@@ -9,6 +9,13 @@ namespace gameDownload.infrastructure
 {
     public class basePageTests : basePage
     {
+        private static IWebDriver _pageDriver;
+
+        public basePageTests(IWebDriver pageDriver)
+        {
+            _pageDriver = pageDriver;
+        }
+
         [TestMethod]
         public void Search(String Search)
         {
@@ -16,7 +23,7 @@ namespace gameDownload.infrastructure
             searchBox.SendKeys(Search);
             searchButton.Click();
 
-            webDriver.FindElement(By.Id("dofullsearch"), 300);
+            _pageDriver.FindElement(By.Id("dofullsearch"), 300);
         }
 
         //[TestMethod]
