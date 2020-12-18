@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gameDownload", "gameDownload\gameDownload.csproj", "{C1722144-A94D-400B-9FCF-FF3EA9607AED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gameDownload.infrastructure", "gameDownload.infrastructure\gameDownload.infrastructure.csproj", "{17577AD0-B317-45FC-8787-1D017CD23BA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gameDownload.infrastructure", "gameDownload.infrastructure\gameDownload.infrastructure.csproj", "{17577AD0-B317-45FC-8787-1D017CD23BA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5CB645EA-4728-4411-B88A-5B18A8EFDC35}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

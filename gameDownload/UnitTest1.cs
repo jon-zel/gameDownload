@@ -4,15 +4,22 @@ using OpenQA.Selenium.Chrome;
 using gameDownload.infrastructure;
 using System;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Edge;
+
 namespace gameDownload
 {
     public class Tests
     {
         private IWebDriver webDriver;
 
+
         [SetUp]
         public void Setup()
         {
+            //ChromeOptions options = new ChromeOptions();
+
+            //options.AddArgument("no-sandbox");
+            //webDriver = new ChromeDriver("chromeService", options, TimeSpan.FromSeconds(120));
             webDriver = new ChromeDriver();
             webDriver.Manage().Window.Maximize();
             webDriver.Navigate().GoToUrl("https://torrent-igruha.org/");
