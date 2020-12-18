@@ -7,11 +7,11 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 namespace gameDownload.infrastructure
 {
-    public class basePageTests : basePage
+    public class basePageMethods : basePageElements
     {
         private static IWebDriver _pageDriver;
 
-        public basePageTests(IWebDriver pageDriver)
+        public basePageMethods(ref IWebDriver pageDriver)
         {
             _pageDriver = pageDriver;
         }

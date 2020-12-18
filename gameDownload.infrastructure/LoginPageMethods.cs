@@ -10,8 +10,17 @@ using OpenQA.Selenium.Support.UI;
 namespace gameDownload.infrastructure
 {
     [TestClass]
-    public class LoginTests : LoginPage
+    public class LoginPageMethods : LoginPageElements
     {
+
+        private static IWebDriver _pageDriver;
+
+        public LoginPageMethods(IWebDriver pageDriver)
+        {
+            _pageDriver = pageDriver;
+        }
+
+
         [TestMethod]
         public void loginAsAutomation()
         {

@@ -7,7 +7,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace gameDownload.infrastructure
 {
-    public class LoginPage : basePage
+    public class LoginPageElements : basePageElements
     {
         // variables
         private const String username = "autoto";

@@ -7,13 +7,10 @@ using OpenQA.Selenium.Support.UI;
 
 namespace gameDownload
 {
-    public class BasePageTests
+    public class LoginPageTests
     {
-
-        protected static IWebDriver webDriver = new ChromeDriver();
-
-        protected basePageMethods basePage = new basePageMethods(ref webDriver);
-
+        private IWebDriver webDriver;
+        //    protected LoginPageMethods loginPage = new LoginPageMethods(webDriver);
 
         [SetUp]
         public void Setup()
@@ -23,7 +20,7 @@ namespace gameDownload
 
             //    basePageMethods.GetBasePageDriver().Manage().Window.Maximize();
             //   basePageMethods.GetBasePageDriver().Navigate().GoToUrl("https://torrent-igruha.org/");
-
+            webDriver = new ChromeDriver();
             webDriver.Manage().Window.Maximize();
             webDriver.Navigate().GoToUrl("https://torrent-igruha.org/");
 
@@ -45,7 +42,7 @@ namespace gameDownload
         //[Test]
         //public void search()
         //{
-        //    basePage.Search("assassins");
+        //    loginPage.loginAsAutomation();
         //    Assert.Pass();
         //}
 
