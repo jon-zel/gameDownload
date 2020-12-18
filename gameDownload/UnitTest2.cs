@@ -1,55 +1,62 @@
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using gameDownload.infrastructure;
-using System;
-using OpenQA.Selenium.Support.UI;
 
 namespace gameDownload
 {
     public class LoginPageTests
     {
-        private IWebDriver webDriver;
-        //    protected LoginPageMethods loginPage = new LoginPageMethods(webDriver);
+        private LoginPageMethods loginPage = new LoginPageMethods();
 
         [SetUp]
         public void Setup()
         {
-            //   webDriver = new ChromeDriver();
-
-
-            //    basePageMethods.GetBasePageDriver().Manage().Window.Maximize();
-            //   basePageMethods.GetBasePageDriver().Navigate().GoToUrl("https://torrent-igruha.org/");
-            webDriver = new ChromeDriver();
-            webDriver.Manage().Window.Maximize();
-            webDriver.Navigate().GoToUrl("https://torrent-igruha.org/");
-
+            loginPage.GetPageDriver().Manage().Window.Maximize();
+            loginPage.GetPageDriver().Navigate().GoToUrl("https://torrent-igruha.org/");
         }
 
         [Test]
         public void CorrectLoggin()
         {
-            Console.WriteLine(webDriver.GetType());
-            webDriver.FindElement(By.Id("nav-miniprofile-link"), 300).Click();
-            webDriver.FindElement(By.Id("login_name"), 300).SendKeys("autoto");
-            webDriver.FindElement(By.Id("login_password"), 300).SendKeys("oop1234");
-            webDriver.FindElement(By.ClassName("fbutton"), 300).Click();
-            //LoginPageMethods login = new LoginPageMethods();
-            //login.loginAsAutomation();
-            Assert.Pass();
+            bool isTheProfileConnected;
+            loginPage.loginAsAutomation();
+            loginPage.isTheProfileConnected(out isTheProfileConnected);
+            if (isTheProfileConnected)
+            {
+                loginPage.logout();
+            }
+            Assert.IsTrue(isTheProfileConnected);
         }
 
-        //[Test]
-        //public void search()
-        //{
-        //    loginPage.loginAsAutomation();
-        //    Assert.Pass();
-        //}
+        [Test]
+        public void LogginWithoutPassword()
+        {
+            bool isTheProfileConnected;
+            loginPage.loginWithoutPassword();
+            loginPage.isTheProfileConnected(out isTheProfileConnected);
+            if (isTheProfileConnected)
+            {
+                loginPage.logout();
+            }
+            Assert.IsFalse(isTheProfileConnected);
+        }
+
+        [Test]
+        public void LogginWithoutUserName()
+        {
+            bool isTheProfileConnected;
+            loginPage.loginWithoutUserName();
+            loginPage.isTheProfileConnected(out isTheProfileConnected);
+            if (isTheProfileConnected)
+            {
+                loginPage.logout();
+            }
+            Assert.IsFalse(isTheProfileConnected);
+        }
 
         [TearDown]
         public void Close()
         {
-            webDriver.Quit();
+            loginPage.GetPageDriver().Quit();
         }
     }
 }

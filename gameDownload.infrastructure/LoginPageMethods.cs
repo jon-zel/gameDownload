@@ -1,25 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-
 
 namespace gameDownload.infrastructure
 {
     [TestClass]
     public class LoginPageMethods : LoginPageElements
     {
-
-        private static IWebDriver _pageDriver;
-
-        public LoginPageMethods(IWebDriver pageDriver)
-        {
-            _pageDriver = pageDriver;
-        }
-
 
         [TestMethod]
         public void loginAsAutomation()
@@ -58,7 +45,6 @@ namespace gameDownload.infrastructure
                 profileConnected = false;
             }
         }
-
 
         [TestMethod]
         public void logout()
