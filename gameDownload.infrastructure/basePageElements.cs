@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SeleniumExtras.PageObjects;
 
 namespace gameDownload.infrastructure
 {
@@ -11,38 +12,49 @@ namespace gameDownload.infrastructure
             return basePageDriver;
         }
 
+
         // Top column - black area
-        protected IWebElement newGames = basePageDriver.FindElement
-            (By.XPath("/html/body/div[2]/div/ul[1]/li/a"), 300);
-        protected IWebElement newGames2020 = basePageDriver.FindElement
-            (By.XPath("/html/body/div[2]/div/ul[2]/li/a"), 300);
-        protected IWebElement contacts = basePageDriver.FindElement
-            (By.XPath("/html/body/div[2]/div/ul[3]/li/a"), 300);
-        protected IWebElement forCopyrightHolders = basePageDriver.FindElement
-            (By.XPath("/html/body/div[2]/div/ul[4]/li/a"), 300);
-        protected IWebElement problemSolution = basePageDriver.FindElement
-            (By.XPath("/html/body/div[2]/div/ul[5]/li/a"), 300);
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div/ul[1]/li/a")]
+        protected IWebElement newGames { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div/ul[2]/li/a")]
+        protected IWebElement newGames2020 { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div/ul[3]/li/a")]
+        protected IWebElement contacts { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div/ul[4]/li/a")]
+        protected IWebElement forCopyrightHolders { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div/ul[5]/li/a")]
+        protected IWebElement problemSolution { get; set; }
 
 
         // Top column - white area
-        protected IWebElement logo_BasePage = basePageDriver.FindElement
-            (By.ClassName("header-logo"), 300);
-        protected IWebElement top10Online = basePageDriver.FindElement
-            (By.LinkText("Топ 10 Онлайн игр"), 300);
-        protected IWebElement top100 = basePageDriver.FindElement
-            (By.LinkText("Топ 100 игр"), 300);
-        protected IWebElement rusNew = basePageDriver.FindElement
-            (By.LinkText("С русcкой озвучкой"), 300);
-        protected IWebElement newVK = basePageDriver.FindElement
-            (By.LinkText("Мы Вконтакте"), 300);
+        [FindsBy(How = How.ClassName, Using = "header-logo")]
+        protected IWebElement logo_BasePage { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Топ 10 Онлайн игр")]
+        protected IWebElement top10Online { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Топ 100 игр")]
+        protected IWebElement top100 { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "С русcкой озвучкой")]
+        protected IWebElement rusNew { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Мы Вконтакте")]
+        protected IWebElement newVK { get; set; }
 
 
         // Search
-        protected IWebElement searchBox = basePageDriver.FindElement
-            (By.Id("story"), 300);
-        protected IWebElement searchButton = basePageDriver.FindElement
-            (By.XPath("/html/body/div[4]/div/div/form/input[3]"), 300);
-        protected IWebElement searchResultInfo = basePageDriver.FindElement
-            (By.ClassName("error-block"), 300);
+        [FindsBy(How = How.Id, Using = "story")]
+        protected IWebElement searchBox { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[4]/div/div/form/input[3]")]
+        protected IWebElement searchButton { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "error-block")]
+        protected IWebElement searchResultInfo { get; set; }
     }
 }
