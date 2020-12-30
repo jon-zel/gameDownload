@@ -34,7 +34,7 @@ namespace gameDownload.infrastructure
         }
 
         [TestMethod]
-        public void isTheProfileConnected(out bool profileConnected)
+        public void checkIfTheProfileConnected(out bool profileConnected)
         {
             profileConnected = true;
 
@@ -47,10 +47,13 @@ namespace gameDownload.infrastructure
         }
 
         [TestMethod]
-        public void logout()
+        public void logout(bool profileConnected)
         {
-            openLoginProfileButton.Click();
-            logoutButton.Click();
+            if (profileConnected)
+            {
+                openLoginProfileButton.Click();
+                logoutButton.Click();
+            }
         }
     }
 }

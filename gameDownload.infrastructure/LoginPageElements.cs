@@ -1,6 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SeleniumExtras.PageObjects;
 
 namespace gameDownload.infrastructure
 {
@@ -11,23 +12,27 @@ namespace gameDownload.infrastructure
         private const String password = "oop1234";
 
         // Login buttons
-        protected IWebElement openLoginProfileButton = basePageDriver.FindElement
-           (By.Id("nav-miniprofile-link"), 300);
-        protected IWebElement userNameBox = basePageDriver.FindElement
-           (By.Id("login_name"), 300);
-        protected IWebElement passwordBox = basePageDriver.FindElement
-          (By.Id("login_password"), 300);
-        protected IWebElement loginButton = basePageDriver.FindElement
-           (By.ClassName("fbutton"), 300);
-        protected IWebElement logoutButton = basePageDriver.FindElement
-           (By.XPath("/html/body/div[2]/div/div[2]/ul/li[3]/a"), 300);
+        [FindsBy(How = How.Id, Using = "nav-miniprofile-link")]
+        protected IWebElement openLoginProfileButton { get; set; }
 
-        public String getUserName()
+        [FindsBy(How = How.Id, Using = "login_name")]
+        protected IWebElement userNameBox { get; set; }
+
+        [FindsBy(How = How.Id, Using = "login_password")]
+        protected IWebElement passwordBox { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "fbutton")]
+        protected IWebElement loginButton { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div/div[2]/ul/li[3]/a")]
+        protected IWebElement logoutButton { get; set; }
+
+        protected String getUserName()
         {
             return username;
         }
 
-        public String getPassword()
+        protected String getPassword()
         {
             return password;
         }
