@@ -6,12 +6,10 @@ namespace gameDownload
     public class LoginPageTests
     {
         private LoginPageMethods loginPage = new LoginPageMethods();
-        private bool isTheProfileConnected;
 
         [SetUp]
         public void Setup()
         {
-            isTheProfileConnected = false;
             loginPage.GetPageDriver().Manage().Window.Maximize();
             loginPage.GetPageDriver().Navigate().GoToUrl("https://torrent-igruha.org/");
         }
@@ -19,18 +17,19 @@ namespace gameDownload
         [Test]
         public void CorrectLoggin()
         {
+            bool isTheProfileConnected;
             loginPage.loginAsAutomation();
-            loginPage.checkIfTheProfileConnected(out isTheProfileConnected);
+            loginPage.isTheProfileConnected(out isTheProfileConnected);
             loginPage.logout(isTheProfileConnected);
-
             Assert.IsTrue(isTheProfileConnected);
         }
 
         [Test]
         public void LogginWithoutPassword()
         {
+            bool isTheProfileConnected;
             loginPage.loginWithoutPassword();
-            loginPage.checkIfTheProfileConnected(out isTheProfileConnected);
+            loginPage.isTheProfileConnected(out isTheProfileConnected);
             loginPage.logout(isTheProfileConnected);
             Assert.IsFalse(isTheProfileConnected);
         }
@@ -38,8 +37,9 @@ namespace gameDownload
         [Test]
         public void LogginWithoutUserName()
         {
+            bool isTheProfileConnected;
             loginPage.loginWithoutUserName();
-            loginPage.checkIfTheProfileConnected(out isTheProfileConnected);
+            loginPage.isTheProfileConnected(out isTheProfileConnected);
             loginPage.logout(isTheProfileConnected);
             Assert.IsFalse(isTheProfileConnected);
         }

@@ -34,7 +34,7 @@ namespace gameDownload.infrastructure
         }
 
         [TestMethod]
-        public void checkIfTheProfileConnected(out bool profileConnected)
+        public void isTheProfileConnected(out bool profileConnected)
         {
             profileConnected = true;
 
