@@ -6,11 +6,14 @@ namespace gameDownload.infrastructure
 {
     public class basePageElements
     {
-        protected static IWebDriver basePageDriver = new ChromeDriver();
+        protected static IWebDriver basePageDriver => webDriver.GetWebDriver();
+        // private webDriver webDriver = new webDriver();
+
         public IWebDriver GetPageDriver()
         {
             return basePageDriver;
         }
+
 
 
         // Top column - black area

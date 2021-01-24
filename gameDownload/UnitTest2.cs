@@ -5,6 +5,7 @@ namespace gameDownload
 {
     public class LoginPageTests
     {
+
         private LoginPageMethods loginPage = new LoginPageMethods();
 
         [SetUp]

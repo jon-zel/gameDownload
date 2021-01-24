@@ -5,7 +5,9 @@ namespace gameDownload
 {
     public class BasePageTests
     {
+        //  private webDriver webDriver = new webDriver();
         private basePageMethods basePage = new basePageMethods();
+
 
         [SetUp]
         public void Setup()
